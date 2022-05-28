@@ -136,9 +136,14 @@ async def driver_profile(driver):
             else:                                       # if there is no data of laps
                 slowest_time = [["no data"]]
 
+            if times[0][0] is None:
+                avg = 'no data'
+            else:
+                avg = datetime.datetime.fromtimestamp(float(times[0][0]) / 1000).strftime("%M:%S.%f")[:-3]
+
             result += f"""
                 <p>
-                average lap time = {milliseconds_to_minutes(times[0][0])} <br>
+                average lap time = {avg} <br>
                 fastest lap time = {fastest_time[0][0]} <br>
                 slowest lap time = {slowest_time[0][0]} <br>
                 number of pit stops = {stops[0][0]} <br>
@@ -202,22 +207,4 @@ def get_top_drivers(season, n=0):
     drivers = cursor.fetchall()
     return drivers
 
-
-def milliseconds_to_minutes(n):
-    """ given n milliseconds returns a string representing n in format %M:%S.%f """
-    # if n is None:
-    #     return "no data"
-    # minute = int(n / 60000)
-    # seconds = n / 1000 - minute * 60
-    # mill = int((seconds * 1000) % 1000)
-    # seconds = int(seconds)
-    # if seconds < 10:
-    #     seconds = "0" + str(seconds)
-    #
-    # return f"{minute}:{seconds}.{mill}"
-
-    if n is None:
-        return 'no data'
-    else:
-        return datetime.datetime.fromtimestamp(float(n)/1000).strftime("%M:%S.%f")[:-3]
 
