@@ -9,8 +9,8 @@ dependencies:
 1. MySQL including:
   + mysql user: formulaone, password: 1234 with privileges = CREATE, FILE, INSERT, ALTER, SELECT
   + in configuration file my.ini \ my.cnf: secure-file-priv = "" in section [mysqld]
-3. FastAPI (installed with pip)
-4. uvicorn (installed with pip)
+2. FastAPI (installed with pip)
+3. uvicorn (installed with pip)
 
 instructions:
 1. start MySQL server, create user formulaone
