@@ -7,7 +7,7 @@ files included:
 
 dependencies:
 1. MySQL including:
-  + mysql user: formulaone, password: 1234 with privileges = CREATE, FILE, INSERT
+  + mysql user: formulaone, password: 1234 with privileges = CREATE, FILE, INSERT, ALTER, SELECT
   + in configuration file my.ini \ my.cnf: secure-file-priv = "" in section [mysqld]
 3. FastAPI (installed with pip)
 4. uvicorn (installed with pip)
