@@ -7,16 +7,17 @@ files included:
 
 dependencies:
 1. MySQL including:
-  + mysql user: formulaone, password: 1234 with privileges = 
-  + in configuration file my.ini \ my.cnf: secure_file_priv = 1 in section [mysqld]
+  + mysql user: formulaone, password: 1234 with privileges = CREATE, FILE, INSERT
+  + in configuration file my.ini \ my.cnf: secure-file-priv = "" in section [mysqld]
 3. FastAPI (installed with pip)
 4. uvicorn (installed with pip)
 
 instructions:
-1. run formulaone.py 
-2. run formulaoneapi.py
-3. type 'uvicorn formulaoneapi:app --reload' in cmd from the file's directory
-4. go to the url written in the cmd (probably http://127.0.0.1:8000)
+1. start MySQL server, create user formulaone
+2. run formulaone.py 
+3. run formulaoneapi.py
+4. type 'uvicorn formulaoneapi:app --reload' in cmd from the file's directory
+5. type in a browser the url written in the cmd (probably http://127.0.0.1:8000)
 
 endpoints:
 1. ranking of drivers in given season at **/driversbyseason/{season}**
